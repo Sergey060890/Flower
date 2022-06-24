@@ -6,16 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FlowerDTO implements Serializable {
+public class HorseDTO implements Serializable {
     private Integer id;
-    private String name;
-    private String size;
-    private String color;
+    private String type;
+    private Integer age;
     private Integer price;
 }

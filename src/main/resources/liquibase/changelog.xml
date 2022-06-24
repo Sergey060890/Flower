@@ -4,15 +4,14 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
-    <changeSet id="1" author="Sergey060890">
-        <comment>create table flower</comment>
+    <changeSet id="2" author="Sergey060890">
+        <comment>create table horse</comment>
         <sql>
-            create table classwork.flower
+            create table classwork.horse
             (
                 id    int auto_increment primary key,
-                name  char(200) null,
-                color char(200) null,
-                size char(200) null,
+                type  char(200) null,
+                age   int(11) not null,
                 price int(11) not null
             );
         </sql>

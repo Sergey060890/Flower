@@ -1,8 +1,8 @@
 package servlet;
 
-import dto.FlowerDTO;
-import service.FlowerService;
-import service.FlowerServiceImpl;
+import dto.HorseDTO;
+import service.HorseService;
+import service.HorseServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,22 +13,21 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/select")
-public class SelectFlowerServlet extends HttpServlet {
+public class SelectHorseServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        FlowerService flowerService = new FlowerServiceImpl();
+        HorseService horseService = new HorseServiceImpl();
         int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("id", id);
         try {
-            FlowerDTO flowerDTO = flowerService.findFlowerById(id);
+            HorseDTO horseDTO = horseService.findHourseById(id);
 
-            request.setAttribute("name", flowerDTO.getName());
-            request.setAttribute("color", flowerDTO.getColor());
-            request.setAttribute("price", flowerDTO.getPrice());
-            request.setAttribute("size", flowerDTO.getSize());
-            request.getServletContext().getRequestDispatcher("/myFlower.jsp").forward(request, response);
+            request.setAttribute("type", horseDTO.getType());
+            request.setAttribute("age", horseDTO.getAge());
+            request.setAttribute("price", horseDTO.getPrice());
+            request.getServletContext().getRequestDispatcher("/myHorse.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

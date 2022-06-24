@@ -1,7 +1,7 @@
 package servlet;
 
-import service.FlowerService;
-import service.FlowerServiceImpl;
+import service.HorseService;
+import service.HorseServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/delete")
-public class DeleteFlowerServlet extends HttpServlet {
+public class DeleteHorseServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
-            FlowerService flowerService = new FlowerServiceImpl();
+            HorseService horseService = new HorseServiceImpl();
             int id = Integer.parseInt(request.getParameter("id"));
-            flowerService.deleteFlower(id);
-            response.sendRedirect(request.getContextPath() + "/FlowerServlet");
+            horseService.deleteHourse(id);
+            response.sendRedirect(request.getContextPath() + "/HorseServlet");
         }
         catch(Exception ex) {
             getServletContext().getRequestDispatcher("/notfound.jsp").forward(request, response);
